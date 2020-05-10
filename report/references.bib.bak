@@ -1,0 +1,58 @@
+% Encoding: UTF-8
+
+@Article{ross2002analysis,
+  author = {Marc Ross and Tom Wenzel},
+  title  = {An Analysis of Traffic Deaths by Vehicle Type and Model},
+  year   = {2002},
+  url    = {https://www2.lbl.gov/Science-Articles/Archive/assets/images/2002/Aug-26-2002/SUV-report.pdf},
+}
+
+@Article{white2004arms,
+  author   = {White, Michelle J.},
+  title    = {The ``Arms Race'' on American Roads: The Effect of Sport Utility Vehicles and Pickup Trucks on Traffic Safety},
+  journal  = {The Journal of Law and Economics},
+  year     = {2004},
+  volume   = {47},
+  number   = {2},
+  pages    = {333-355},
+  abstract = { Abstract Drivers have been running an “arms race” on American roads by buying increasingly large vehicles such as sport utility vehicles and light trucks. But large vehicles pose an increased danger to occupants of smaller vehicles and to pedestrians, bicyclists, and motorcyclists. This paper measures both the internal effect of large vehicles on their own occupants’ safety and their external effect on others. The results show that light trucks are extremely deadly. For each 1 million light trucks that replace cars, between 34 and 93 additional car occupants, pedestrians, bicyclists, or motorcyclists are killed per year, and the value of the lives lost is between \$242 and \$652 million per year. The safety gain that families obtain for themselves from driving large vehicles comes at a very high cost: for each fatal crash that occupants of large vehicles avoid, at least 4.3 additional fatal crashes involving others occur. },
+  doi      = {10.1086/422979},
+  eprint   = {https://doi.org/10.1086/422979},
+  url      = { 
+        https://doi.org/10.1086/422979
+    
+},
+}
+
+@Article{buffalo2013passenger,
+  author  = {{University at Buffalo}},
+  title   = {Passenger car drivers are more likely to die in crashes with SUVs, regardless of crash ratings},
+  journal = {Science Daily},
+  year    = {2013},
+  url     = {www.sciencedaily.com/releases/2013/05/130514135417.htm},
+}
+
+@Article{gladwell2004big,
+  author  = {Malcolm Gladwell},
+  title   = {Big and Bad},
+  journal = {Gladwell.com},
+  year    = {2004},
+  url     = {https://web.archive.org/web/20160219222512/http://gladwell.com/big-and-bad/},
+}
+
+@Article{nhtsa1998overview,
+  author = {{National Highway Traffic Safety Administration}},
+  title  = {Overview of Vehicle Compatibility},
+  year   = {1998},
+  url    = {http://www.nhtsa.dot.gov/cars/problems/studies/LTV/},
+}
+
+@Misc{chicag02020traffic,
+  author       = {{The City of Chicago}},
+  title        = {Traffic Crashes},
+  howpublished = {Online Data set},
+  year         = {2020},
+  url          = {https://data.cityofchicago.org/Transportation/Traffic-Crashes-Crashes/85ca-t3if?fbclid=IwAR25N2kCthVSdzUEz1lq3VJN3diGt1yYZ2pkPcxqvq_ulJfFRw3Fey9XuIg},
+}
+
+@Comment{jabref-meta: databaseType:bibtex;}

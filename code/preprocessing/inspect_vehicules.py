@@ -1,0 +1,47 @@
+import pandas as pd
+
+vehicules = pd.read_csv("./data/raw/vehicules.csv")
+
+
+vehicules["CRASH_DATE"].value_counts(dropna=False)
+vehicules["UNIT_NO"].value_counts(dropna=False)
+vehicules["UNIT_TYPE"].value_counts(dropna=False)
+vehicules["NUM_PASSENGERS"].value_counts(dropna=False)
+vehicules["VEHICLE_ID"].value_counts(dropna=False)
+vehicules["VEHICLE_ID"].value_counts(dropna=True).max()
+vehicules["CMRC_VEH_I"].value_counts(dropna=False)
+vehicules["MAKE"].value_counts(dropna=False)
+vehicules["MODEL"].value_counts(dropna=False)
+vehicules["LIC_PLATE_STATE"].value_counts(dropna=False)
+vehicules["VEHICLE_YEAR"].value_counts(dropna=False)
+vehicules["VEHICLE_DEFECT"].value_counts(dropna=False)
+vehicules["VEHICLE_TYPE"].value_counts(dropna=False)
+vehicules["VEHICLE_USE"].value_counts(dropna=False)
+vehicules["TRAVEL_DIRECTION"].value_counts(dropna=False)
+vehicules["MANEUVER"].value_counts(dropna=False)
+vehicules["TOWED_I"].value_counts(dropna=False)
+vehicules["FIRE_I"].value_counts(dropna=False)
+vehicules["OCCUPANT_CNT"].value_counts(dropna=False)
+vehicules["EXCEED_SPEED_LIMIT_I"].value_counts(dropna=False)
+vehicules["TOWED_BY"].value_counts(dropna=False)
+vehicules["TOWED_TO"].value_counts(dropna=False)
+vehicules["AREA_00_I"].value_counts(dropna=False)
+vehicules["FIRST_CONTACT_POINT"].value_counts(dropna=False)
+vehicules["CMV_ID"].value_counts(dropna=False)
+vehicules["USDOT_NO"].value_counts(dropna=False)
+vehicules["CCMC_NO"].value_counts(dropna=False)
+vehicules["ILCC_NO"].value_counts(dropna=False)
+vehicules["COMMERCIAL_SRC"].value_counts(dropna=False)
+vehicules["GVWR"].value_counts(dropna=False)
+vehicules["CARRIER_NAME"].value_counts(dropna=False)
+vehicules["HAZMAT_NAME"].value_counts(dropna=False)
+vehicules["LOAD_TYPE"].value_counts(dropna=False)
+
+print(vehicules.columns)
+
+# TRANSFORMATIONS
+
+vehicules.set_index("CRASH_UNIT_ID", inplace=True)
+vehicules["CRASH_DATE"] = pd.to_datetime(vehicules["CRASH_DATE"])
+vehicules["NUM_PASSENGERS"] = vehicules["NUM_PASSENGERS"].astype('Int64')
+vehicules["OCCUPANT_CNT"] = vehicules["OCCUPANT_CNT"].astype('Int64')

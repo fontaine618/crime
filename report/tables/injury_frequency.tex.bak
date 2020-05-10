@@ -1,0 +1,26 @@
+
+\begin{tabular}{lrrrrrrrr}
+\toprule
+\multicolumn{9}{l}{\normalsize\textbf{Injury Frequency by Vehicle Type}}\\\addlinespace
+Vehicle & \multicolumn{4}{c}{Passenger} & \multicolumn{4}{c}{SUV/Pickup} \\
+%\cmidrule(lr){1-1}
+\cmidrule(lr){2-5}
+\cmidrule(l){6-9}
+Vehicle (other) & \multicolumn{2}{c}{Passenger} & \multicolumn{2}{c}{SUV/Pickup} & \multicolumn{2}{c}{Passenger} & \multicolumn{2}{c}{SUV/Pickup} \\
+%\cmidrule(lr){1-1}
+\cmidrule(lr){2-3}
+\cmidrule(lr){4-5}
+\cmidrule(lr){6-7}
+\cmidrule(l){8-9}
+Injury classification     &      Count  &  \% Col.  &       Count  &  \% Col.  &       Count  &  \% Col.  &       Count  &  \% Col. \\
+\midrule
+Fatal                    &         7 &     0.01 &          3 &     0.03 &          3 &     0.03 &          1 &     0.02 \\
+Incapacitating    &       238 &     0.47 &         43 &     0.41 &         62 &     0.59 &         22 &     0.44 \\\addlinespace
+Severe            &       245 &     0.48 &         46 &     0.44 &         65 &     0.62 &         23 &     0.46 \\\addlinespace
+Non-incapacitated &      1277 &     2.52 &        254 &     2.43 &        271 &     2.60 &        131 &     2.65 \\
+Reported, not evident   &       937 &     1.85 &        188 &     1.80 &        192 &     1.84 &         86 &     1.74 \\\addlinespace
+Injury             &      2459 &     4.84 &        488 &     4.67 &        528 &     5.06 &        240 &     4.85 \\\addlinespace
+No Injury  &     48303 &    95.16 &       9955 &    95.33 &       9915 &    94.94 &       4710 &    95.15 \\\addlinespace
+Total                    &     50762 &   100.00 &      10443 &   100.00 &      10443 &   100.00 &       4950 &   100.00 \\
+\bottomrule
+\end{tabular}

@@ -1,0 +1,26 @@
+\begin{tabular}{lllrrrr}
+\toprule
+\multicolumn{7}{l}{\normalsize\textbf{Logistic Regression Models}}\\\addlinespace
+Month  &  Day of Week  &  Hour  &  Log-lik.  &  D.f.  &     AIC  &       BIC \\
+\midrule
+\multicolumn{7}{l}{\textbf{Any injury}}\\\addlinespace
+GAM & All & GAM &  -7155 &       72 &  14456 &  -389096 \\
+       &        & Dark &  -7156 &       69 &  14453 &  -389125 \\\addlinespace
+       & Weekday & GAM &  -7157 &       67 &  14449 &  -389145 \\
+       &        & Dark &  -7158 &       64 &  14446 &  -389174 \\\addlinespace
+Season & All & GAM &  -7157 &       71 &  14459 &  -389101 \\
+       &        & Dark &  -7159 &       68 &  14456 &  -389130 \\\addlinespace
+       & Weekday & GAM &  -7159 &       66 &  14452 &  -389151 \\
+       &        & Dark &  -7161 &       63 &  14449 &  -389180 \\
+\midrule
+\multicolumn{7}{l}{\textbf{Severe injury}}\\\addlinespace
+GAM & All & GAM &  -1098 &       72 &  2342 &  -401210 \\
+       &        & Dark &  -1099 &       69 &  2337 &  -401240 \\\addlinespace
+       & Weekday & GAM &  -1101 &       67 &  2337 &  -401257 \\
+       &        & Dark &  -1101 &       64 &  2332 &  -401288 \\\addlinespace
+Season & All & GAM &  -1099 &       71 &  2342 &  -401218 \\
+       &        & Dark &  -1100 &       68 &  2337 &  -401249 \\\addlinespace
+       & Weekday & GAM &  -1102 &       66 &  2337 &  -401266 \\
+       &        & Dark &  -1102 &       63 &  2332 &  -401297 \\
+\bottomrule
+\end{tabular}

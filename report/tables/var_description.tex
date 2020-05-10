@@ -1,0 +1,45 @@
+\begin{tabular}{>{\raggedright\arraybackslash}p{3cm}>{\raggedright\arraybackslash}p{7cm}>{\raggedright\arraybackslash}p{4cm}}
+\toprule
+\multicolumn{3}{l}{\normalsize\textbf{Variable Description}}\\\addlinespace
+Variable                 &                                                                                                                                                                                                                                                                                                                              Values (Count, count (other))  &                                                             Comments \\
+\midrule
+
+
+\multicolumn{3}{l}{\textbf{Crash}}\\\addlinespace
+Primary cause &  Unknown/other (17229)\newline Following too closely (6294)\newline Failing to yield right-of-way (5899)\newline Improper overtaking/passing (2158)\newline Improper lane usage (1855)\newline Failing to reduce speed to avoid crash (1766)\newline Improper turning/no signal (1625)\newline Improper backing (1473) &  Missing and low frequency levels assigned to ``Unknown/other'' \\
+Month             &                                                                                                                                                                                                                                                                                                                               1-12 &                                                                     \\
+Hour              &                                                                                                                                                                                                                                                                                                                               0-23 &                                                                     \\
+Day of week       &                                                                                                                                                                                                                                                                                                                    Sunday-Saturday &                                                                     \\
+%\midrule
+
+
+%\multicolumn{3}{l}{\textbf{Crash, calculated}}\\\addlinespace
+Season  &  Fall (11005)\newline Spring (9205)\newline Summer (9113)\newline Winter (8976) &                                         \\
+Weekday &                                         Weekday (28178)\newline Weekend (10121) &  ``Weekend'' defined as Saturday and Sunday \\
+Dark    &                                                Day (32937)\newline Night (5362) &         ``Day'' defined between 6AM and 8PM \\
+Any injury    &                                                                     False (36434)\newline True (1865) &     True if not ``No indication of injury''\\
+Severe injury &                                                                      False (38114)\newline True (185) &  True if ``Fatal'' or ``Incapacitating injury'' \\
+\midrule
+
+
+\multicolumn{3}{l}{\textbf{Drivers}}\\\addlinespace
+Sex              &                                                                                                                                                                                                                                                                        M (20915, 20972)\newline F (13890, 13816)\newline Unknown/other (3494, 3511) &                                                      \\
+Safety equipment &                                                                                                                                                                                                                                     Safety belt used (20358, 20268)\newline Unknown/other (17097, 17141)\newline Not used/none present (844, 890) &                                  Missing and low frequency levels assigned to ``Unknown/other'' \\
+%\midrule
+Blood alcohol content       &                                                                                                                                                                                                                                                                            Test not offered (37785, 37730)\newline Test offered (514, 569) &  All but ``Test not offered'' are assigned to ``Test offered'' \\
+
+
+%\multicolumn{3}{l}{\textbf{Drivers, calculated}}\\\addlinespace
+Age (binned)      &  21-60 (23684, 23574)\newline Unknown (9614, 9703)\newline 60+ (3531, 3485)\newline 20- (1470, 1537) &     \\
+\midrule
+
+
+\multicolumn{3}{l}{\textbf{Vehicle}}\\\addlinespace
+Type &                                                                                                                                                                                              Passenger (30617, 30588)\newline SUV/Pickup (7682, 7711) &                                                        \\
+
+Action    &  None (14375, 14494)\newline Unknown/other (11952, 11908)\newline Failed to yield (3829, 3756)\newline Followed too closely (2698, 2687)\newline Improper backing (1282, 1255)\newline Improper lane change (1153, 1087)\newline Improper turn (1026, 1017)\newline Improper passing (856, 918)\newline Too fast for conditions (607, 606)\newline Disregarded control devices (521, 571) &                                  Missing and low frequency levels assigned to ``Unknown/other'' \\
+
+Maneuver     &  Straight ahead (21904, 21939)\newline Slow/stop in traffic (4316, 4372)\newline Unknown/other (4152, 4126)\newline Turning left (2784, 2783)\newline Backing (1488, 1470)\newline Turning right (1326, 1296)\newline Changing lanes (1254, 1218)\newline Passing/overtaking (1075, 1095) &  Missing and low frequency levels assigned to ``Unknown/other'' \\
+
+\bottomrule
+\end{tabular}

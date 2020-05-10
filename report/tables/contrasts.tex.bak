@@ -1,0 +1,19 @@
+\begin{tabular}{llrrrrrr}
+\toprule
+\multicolumn{8}{l}{\normalsize\textbf{Logistic Regression Vehicule Type Contrasts}}\\\addlinespace
+&&&&&&\multicolumn{2}{c}{95 \% C.I.}\\\cmidrule(l){7-8}
+Vehicle  &  Vehicle (other)  &     Est.  &  Std err.  &  $z$-value  &   $p$-value  &  Lower  &  Upper \\
+\midrule
+\multicolumn{8}{l}{\textbf{Any injury}}\\\addlinespace
+Passenger & Passenger &   0.000 &   -- &   --&  -- &          -- &           -- \\
+SUV/Pickup & Passenger &  -0.076 &   0.071 &  -1.075 &  0.282 &         -0.215 &           0.063 \\
+Passenger & SUV/Pickup &  -0.027 &   0.071 &  -0.380 &  0.704 &         -0.167 &           0.113 \\
+SUV/Pickup & SUV/Pickup &  -0.009 &   0.099 &  -0.089 &  0.929 &         -0.204 &           0.186 \\
+\midrule
+\multicolumn{8}{l}{\textbf{Severe injury}}\\\addlinespace
+Passenger & Passenger &   0.000 &   -- &   -- &  -- &          -- &           -- \\
+SUV/Pickup & Passenger &  -0.583 &   0.194 &  -3.006 &  0.003 &         -0.963 &          -0.203 \\
+Passenger & SUV/Pickup &  -0.273 &   0.215 &  -1.270 &  0.204 &         -0.695 &           0.148 \\
+SUV/Pickup & SUV/Pickup &  -0.449 &   0.279 &  -1.608 &  0.108 &         -0.997 &           0.098 \\
+\bottomrule
+\end{tabular}

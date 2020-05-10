@@ -1,0 +1,1501 @@
+#LyX 2.3 created this file. For more info see http://www.lyx.org/
+\lyxformat 544
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass article
+\begin_preamble
+\usepackage[labelfont = {bf}, textfont ={it}, 
+margin =1cm,font=small, tablename = Table ]{caption}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhead[R]{\small S. Fontaine}
+\fancyhead[L]{\small Applied QR 2020 -- Chicago Traffic Crashes}
+\end_preamble
+\use_default_options true
+\begin_modules
+theorems-ams
+eqs-within-sections
+figs-within-sections
+todonotes
+\end_modules
+\maintain_unincluded_children false
+\language english
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures true
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing onehalf
+\use_hyperref true
+\pdf_title "Applied QR 2020 - Chicago Traffic Crashes"
+\pdf_author "Simon Fontaine"
+\pdf_bookmarks true
+\pdf_bookmarksnumbered true
+\pdf_bookmarksopen true
+\pdf_bookmarksopenlevel 2
+\pdf_breaklinks true
+\pdf_pdfborder true
+\pdf_colorlinks true
+\pdf_backref false
+\pdf_pdfusetitle true
+\papersize default
+\use_geometry true
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine natbib
+\cite_engine_type authoryear
+\biblio_style plainnat
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date true
+\justification true
+\use_refstyle 1
+\use_minted 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\leftmargin 3cm
+\topmargin 3cm
+\rightmargin 3cm
+\bottommargin 3cm
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style english
+\dynamic_quotes 0
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Title
+
+\shape smallcaps
+\size large
+University of Michigan, Department of Statistics
+\shape default
+
+\begin_inset Newline newline
+\end_inset
+
+
+\size larger
+Applied QR 2020
+\size default
+
+\begin_inset Newline newline
+\end_inset
+
+
+\series bold
+Chicago Traffic Crashes: Comparing the Safety of Passenger Cars to SUVs
+ and Pickup Trucks
+\end_layout
+
+\begin_layout Author
+Simon Fontaine
+\begin_inset Newline newline
+\end_inset
+
+
+\shape italic
+\size normal
+University of Michigan,
+\shape default
+ 
+\begin_inset CommandInset href
+LatexCommand href
+name "simfont@umich.edu"
+target "simfont@umich.edu"
+literal "false"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Abstract
+This is the abstract
+\end_layout
+
+\begin_layout Standard
+\paragraph_spacing single
+\begin_inset CommandInset toc
+LatexCommand tableofcontents
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage newpage
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Introduction
+\end_layout
+
+\begin_layout Standard
+While larger vehicles are safer for their occupants than smaller ones 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "buffalo2013passenger"
+literal "false"
+
+\end_inset
+
+, some studies show that they are more dangerous to the occupants of other
+ cars.
+ 
+\begin_inset CommandInset citation
+LatexCommand citet
+after "Figure 2"
+key "ross2002analysis"
+literal "false"
+
+\end_inset
+
+ find that SUVs and pickup trucks have similar risks to their drivers as
+ passenger cars while exhibiting increased risk to the drivers of other
+ cars; the difference is particularly large for pickup trucks.
+ 
+\begin_inset CommandInset citation
+LatexCommand citet
+key "white2004arms"
+literal "false"
+
+\end_inset
+
+ show that passenger car occupants face an increased likelihood of fatality
+ or serious injury when involved in a crash where the other vehicle is a
+ 
+\emph on
+light truck
+\emph default
+, that is, a SUV, a pickup truck or a van.
+ These results induce a 
+\emph on
+collective action problem
+\emph default
+ in the sense that each individual is better off having a light truck for
+ their own safety, but the population, taken as a whole, might be less safe
+ with higher proportion of light trucks.
+ Indeed, 
+\begin_inset CommandInset citation
+LatexCommand citet
+key "white2004arms"
+literal "false"
+
+\end_inset
+
+ further calculate that 
+\begin_inset Quotes eld
+\end_inset
+
+for each fatal crash that occupants of large vehicles avoid, at least 4.3
+ additional fatal crashes involving others occur.
+\begin_inset Quotes erd
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+These two studies consider US-wide crash data and thus consider both urban
+ and rural traffic crashes.
+ In this analysis, we focus on the urban setting: in particular, we investigate
+ if similar results holds for Chicago traffic crashes between 2015 to 2020.
+ 
+\end_layout
+
+\begin_layout Standard
+Additionally, 
+\begin_inset CommandInset citation
+LatexCommand citet
+key "ross2002analysis"
+literal "false"
+
+\end_inset
+
+ does not control for any crash-, vehicle- or driver-related information
+ and 
+\begin_inset CommandInset citation
+LatexCommand citet
+key "white2004arms"
+literal "false"
+
+\end_inset
+
+ control mostly for driver-related information.
+ We include more details about the circumstances of each crash in our analysis
+ to control for sampling biases such as different driving behaviors between
+ smaller and larger car drivers 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "nhtsa1998overview,gladwell2004big"
+literal "false"
+
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+It is also worthwhile to mention that 
+\begin_inset CommandInset citation
+LatexCommand citet
+key "white2004arms"
+literal "false"
+
+\end_inset
+
+ consider the worst injury among the occupants: larger vehicles contain
+ more occupants on average
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+In our sample, we find that passenger cars contain 1.24 occupants on average
+ while SUVs and pickup trucks contain 1.28 occupants on average.
+\end_layout
+
+\end_inset
+
+ so it increases the likelihood of observing more extreme injuries.
+ In this analysis, we consider only drivers' injuries in order to avoid
+ this over-sampling.
+\end_layout
+
+\begin_layout Subsection
+Data Overview
+\end_layout
+
+\begin_layout Standard
+The data set we consider comes from 
+\begin_inset CommandInset citation
+LatexCommand citet
+key "chicag02020traffic"
+literal "false"
+
+\end_inset
+
+ and contains over 400,000 reports of traffic crashes in Chicago between
+ 2015 and 2020.
+ For each crash, the data set provides information about environmental circumsta
+nce (time, location, road layout and condition, weather, visibility, etc.)
+ and crash causes.
+ Additionally, each vehicle involved in the crash has in entry in a related
+ data set describing the vehicle itself, its status and damages resulting
+ from the crash, its number of occupants along with numerous other information.
+ Finally, each individual involved in a crash is described in a third data
+ set containing, among others, demographic information, vehicle occupancy,
+ injuries suffered and blood alcohol content testing.
+ Furthermore, individuals identified as drivers have additional information
+ regarding their driving actions prior to the crash.
+\end_layout
+
+\begin_layout Subsection
+Research Questions
+\end_layout
+
+\begin_layout Standard
+Our main research question is to study the frequency of injuries suffered
+ by drivers of passenger cars or light trucks (SUVs and pickup trucks) when
+ involved in a crash with another car of these categories.
+ In particular, we wish to compare the injury prevalence in the natural
+ four cases of two-car incidents: passenger car v.
+ passenger car, passenger car v.
+ light truck, light truck v.
+ passenger car and light truck v.
+ light truck.
+ We will consider two types of outcome: 
+\emph on
+Any injury
+\emph default
+ in the case some injury was reported and 
+\emph on
+Severe injury
+\emph default
+ for incapacitating injuries and fatalities.
+ We do not consider fatalities directly as the data set contains too few
+ occurrences.
+\end_layout
+
+\begin_layout Standard
+Table
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "tab:injury_frequency"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ shows the frequencies of injuries for each combination of vehicle type
+ (details on the sample are in Section
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Methodology"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+).
+ At first glance, it seems that there is no clear difference in the relative
+ frequencies with respect to the type of vehicle involved in a crash.
+ However, as 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "white2004arms"
+literal "false"
+
+\end_inset
+
+ shows, there are multiple factors associated with the injury outcome of
+ a crash.
+ Hence, to achieve an accurate comparison of injury frequency by vehicle
+ type, we must control these factors.
+ This naturally leads to our secondary research question: determining which
+ information about crashes, vehicles and drivers are good predictors of
+ the injury outcome.
+ As well as improving the quality of our main analysis, this process can
+ also provide some insight on other important predictive factors of crash-relate
+d injuries.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float table
+placement t
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+
+\size small
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+input{./tables/injury_frequency.tex}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "tab:injury_frequency"
+
+\end_inset
+
+Frequency of reported injuries by occupying vehicle type and other vehicle
+ type.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage clearpage
+\end_inset
+
+
+\begin_inset Newpage newpage
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Methodology
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:Methodology"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Data Pre-processing
+\end_layout
+
+\begin_layout Standard
+The first step in our data processing pipeline is to identify crashes relevant
+ to our research question.
+ We consider crashes satisfying the following conditions:
+\end_layout
+
+\begin_layout Itemize
+The crash report identifies that exactly two vehicles were involved;
+\end_layout
+
+\begin_layout Itemize
+The vehicle report contains exactly two vehicle attached to those crashes;
+\end_layout
+
+\begin_layout Itemize
+Both vehicles are either a passenger car or a light truck (SUV or pickup
+ truck);
+\end_layout
+
+\begin_layout Itemize
+Both vehicles contains at least one occupant, one of which is a driver.
+\end_layout
+
+\begin_layout Standard
+Upon merging vehicle and driver information, we collapse the two entries
+ of a given crash (one for each vehicle-driver report) into a single report
+ by randomly assigning each vehicle-driver report to position 1 or position
+ 2.
+ Position 1 will correspond to our point-of-view, that is, the driver whose
+ injuries we try to model; the vehicle-driver in position 2 will thus only
+ intervene through its covariates.
+ Without ambiguity, we refer to covaraites of vehicles and drivers in position
+ 2 with the mention 
+\emph on
+(other)
+\emph default
+ and those in position 1 without any mention.
+\end_layout
+
+\begin_layout Standard
+Then, we exclude some reports based on inspection of their values.
+ For example, the reported speed limits and lane counts are sometimes out
+ of the ordinary: we drop any observation with speed limit of lane count
+ values that occur less than 50 times in the data set.
+ Similarly, some reports contains drivers' age below 15: while this is a
+ real possibility (e.g.
+ stolen car), we choose to remove those reports.
+ After selection of crashes and removal of some reports, we obtain a set
+ of 38,299 crashes.
+\end_layout
+
+\begin_layout Standard
+Most of the potential covariates included in the reports are categorical
+ and a large proportion of these contain large amounts of possible values.
+ To avoid having too many levels per variable, we merge low-frequency values
+ (less than a few hundred observations) into a single category.
+ Additionnally, missing values or entries reported as some equivalent of
+ missing or unknown are also assigned to that cemetery category that is
+ systematically called 
+\emph on
+Unknown/other
+\emph default
+.
+ Among others variables, 
+\emph on
+Primary cause
+\emph default
+, 
+\emph on
+Sex
+\emph default
+, 
+\emph on
+Safety equipment
+\emph default
+, 
+\emph on
+Action and Maneuver
+\emph default
+ are treated as such.
+\end_layout
+
+\begin_layout Standard
+The data set contains also a few numerical variables.
+ Since we suspect potential non-linear relationship between 
+\emph on
+Month
+\emph default
+, 
+\emph on
+Day of week
+\emph default
+, 
+\emph on
+Hou
+\emph default
+r, 
+\emph on
+Age
+\emph default
+ and injuries, we calculate new variables by binning their values into categorie
+s.
+ The 
+\emph on
+Month
+\emph default
+ variable is binned into 
+\emph on
+Season
+\emph default
+; the 
+\emph on
+Day of week
+\emph default
+ variable into 
+\emph on
+Weekday
+\emph default
+/
+\emph on
+Weekend
+\emph default
+; 
+\emph on
+Hour
+\emph default
+ into 
+\emph on
+Day
+\emph default
+/
+\emph on
+Night
+\emph default
+ and 
+\emph on
+Age
+\emph default
+ into three categories (20-, 21-60, 60+).
+ The 
+\emph on
+Age
+\emph default
+ variable also contained some missing values which are labeled as 
+\emph on
+Unknown
+\emph default
+ in the binned age variable.
+\end_layout
+
+\begin_layout Standard
+Finally, we compute our two response variable using the 
+\emph on
+Injury classification
+\emph default
+ of the driver in position 1.
+ First, whenever some injury was reported, the 
+\emph on
+Any injury
+\emph default
+ response is set to 1; it is set to 0 otherwise.
+ Second, whenever the driver was incapacitated or killed, we set the 
+\emph on
+Severe injury
+\emph default
+ variable to 1 and to 0 otherwise.
+\end_layout
+
+\begin_layout Standard
+A detailed summary of all variables used in this analysis can be found in
+ Table
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "tab:var_description"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Subsection
+Preliminary Variable Selection
+\end_layout
+
+\begin_layout Standard
+The first step in the analysis it to select control variates for the main
+ analysis of injuries by vehicle types.
+ To achieve this, we consider three different opinions.
+\end_layout
+
+\begin_layout Standard
+First, the study by 
+\begin_inset CommandInset citation
+LatexCommand citet
+key "white2004arms"
+literal "false"
+
+\end_inset
+
+ identifies some factors relevant for predicting injuries.
+ Since the setting is fairly similar and we have access to relatively equivalent
+ information, we will include any feature they found significant.
+\end_layout
+
+\begin_layout Standard
+Second, we will consider a naive Random Forest classifier model for each
+ response including all available information.
+ Then, we compute the variable importance of all covariates to identify
+ a collection of features exhibiting predictive power.
+\end_layout
+
+\begin_layout Standard
+Third, since the Random Forest model is intrinsically non-linear, we also
+ consider a penalized logistic regression model using all variables.
+ This model enables us to identify features exhibiting linear predictive
+ power.
+ We choose an elastic net penalty (95% 
+\begin_inset Formula $\ell_{1}$
+\end_inset
+
+, 5% 
+\begin_inset Formula $\ell_{2}$
+\end_inset
+
+) with a regularization parameter inducing some sparsity.
+ We compute a variable importance statistic as follows.
+ Given an estimate 
+\begin_inset Formula $\beta_{j}\in\mathbb{R}^{d_{j}}$
+\end_inset
+
+ for some feature 
+\begin_inset Formula $j$
+\end_inset
+
+ (
+\begin_inset Formula $d_{j}$
+\end_inset
+
+ denotes the number of coefficients associated with that feature), we compute
+ the normalized group norm 
+\begin_inset Formula $\Vert\beta_{j}/d_{j}\Vert_{2}$
+\end_inset
+
+ and standardize these norms so that they sum to 1 across all groups of
+ features.
+\end_layout
+
+\begin_layout Standard
+Finally, we arbitrarily select potentially relevant features from these
+ three subsets as our control variates.
+ Note that, for the last two methods, we only consider information which
+ can temporarily predict the injuries and exclude any information that can
+ be seen as resulting from a crash (e.g.
+ vehicle damage).
+\end_layout
+
+\begin_layout Subsection
+Logistic Regression Analysis of Injuries
+\end_layout
+
+\begin_layout Standard
+With our set of control variates in hand, we proceed to a logistic regression
+ model for both responses.
+ We include the main effect of all control variates as well as the two-way
+ interaction between vehicle types.
+ For numerical control variates (
+\emph on
+Month
+\emph default
+, 
+\emph on
+Day of week
+\emph default
+ and 
+\emph on
+Hour
+\emph default
+), we consider two modeling variations: either we fit cubic splines with
+ 5 degrees of freedom or we use the binned version of these variables.
+ Note that the 
+\emph on
+Age
+\emph default
+ variable contained some missing values which prevents us from using splines,
+ so we resort to using the binned variable only.
+ To identify a final model for each response, we compare the AIC statistic
+ and select the lowest value.
+ 
+\end_layout
+
+\begin_layout Standard
+To answer our main research question, we estimate three contrasts for each
+ response.
+ Our reference value will be crashes with two passenger cars and the three
+ contrasts are given by varying vehicle types.
+ We then examine the estimated coefficients for the control variates to
+ study their association with injuries.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage clearpage
+\end_inset
+
+
+\begin_inset Newpage newpage
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Results
+\end_layout
+
+\begin_layout Standard
+All code for data processing, analysis, producing tables and figures can
+ be found at:
+\end_layout
+
+\begin_layout Quotation
+\align center
+\begin_inset CommandInset href
+LatexCommand href
+name "https://github.com/fontaine618/crime"
+target "https://github.com/fontaine618/crime"
+literal "true"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Subsection
+Preliminary Variable Selection
+\end_layout
+
+\begin_layout Paragraph
+\begin_inset CommandInset citation
+LatexCommand citet
+key "white2004arms"
+literal "false"
+
+\end_inset
+
+ results.
+\end_layout
+
+\begin_layout Standard
+The author finds that 
+\begin_inset Quotes eld
+\end_inset
+
+occupants of v1 are more likely to be killed or seriously injured in crashes
+ that occur at night or on weekends, in cities rather than rural areas,
+ when either vehicle’s speed was more than 10 miles per hour above the limit,
+ when the driver of v1 was more than 60 years old or the driver of v2 was
+ male, and when v1 contained more occupants.
+ Occupants of v1 are less likely to be killed or seriously injured if the
+ driver of v1 wore a seat belt.
+\begin_inset Quotes erd
+\end_inset
+
+ They also find some mild effect from driving under the influence of drugs
+ or alcohol.
+ From this, we identify that 
+\emph on
+Hour
+\emph default
+, 
+\emph on
+Day of week
+\emph default
+, 
+\emph on
+Action
+\emph default
+, 
+\emph on
+Age
+\emph default
+, 
+\emph on
+Sex, Safety equipment, Blood alcohol content
+\emph default
+ and 
+\emph on
+Occupant count
+\emph default
+ are potential control variates.
+\end_layout
+
+\begin_layout Paragraph
+Random Forest.
+\end_layout
+
+\begin_layout Standard
+Figure
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:variable_importance"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ (in red) contains the variable importance of all available information
+ for both of our responses.
+ Using a threshold of 0.05 for at least one response, we find that 
+\emph on
+Age
+\emph default
+, 
+\emph on
+Action
+\emph default
+, 
+\emph on
+Maneuver
+\emph default
+, 
+\emph on
+Primary cause
+\emph default
+ and 
+\emph on
+Travel direction
+\emph default
+ are have strong non-linear predictive power.
+\end_layout
+
+\begin_layout Paragraph
+Penalized Logistic Regression.
+\end_layout
+
+\begin_layout Standard
+Figure
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:variable_importance"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ (in blue) contains the standardized and normalized group norms of the estimated
+ coefficient where the regularization parameter is set to 0.001.
+ We find that 
+\emph on
+Blood alcohol content
+\emph default
+, 
+\emph on
+Action
+\emph default
+, 
+\emph on
+Vision
+\emph default
+, 
+\emph on
+Maneuver
+\emph default
+, 
+\emph on
+Safety equipment
+\emph default
+, 
+\emph on
+Sex
+\emph default
+ and 
+\emph on
+Weather condition
+\emph default
+ all exhibit strong linear effects on the responses.
+\end_layout
+
+\begin_layout Paragraph
+Comparison.
+\end_layout
+
+\begin_layout Standard
+Since the logistic regression model only uses main linear effect, it is
+ not surprising that the numerical variables 
+\emph on
+Age
+\emph default
+, 
+\emph on
+Month
+\emph default
+, 
+\emph on
+Day of week
+\emph default
+ and 
+\emph on
+Hour
+\emph default
+, which intuitively should not act linearly, were not selected.
+ Therefore, since 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "white2004arms"
+literal "false"
+
+\end_inset
+
+ and the non-linear model finds them relevant, we include these covariates,
+ but model them using non-linear terms (cubic spline and binning).
+ All three agents find 
+\emph on
+Action
+\emph default
+ to be important and our two models identify 
+\emph on
+Maneuver
+\emph default
+ as important, so we add them to our pool of features.
+ 
+\emph on
+Occupant count
+\emph default
+ was only considered useful by 
+\begin_inset CommandInset citation
+LatexCommand citet
+key "white2004arms"
+literal "false"
+
+\end_inset
+
+ so we exclude it.
+ Now, we choose to include 
+\emph on
+Primary cause
+\emph default
+ as well because of its clear interpretability as well as being selected
+ by the Random Forest model.
+ Finally, since the logistic regression model indicates particularly strong
+ effects coming from Blood alcohol content and 
+\begin_inset CommandInset citation
+LatexCommand citet
+key "white2004arms"
+literal "false"
+
+\end_inset
+
+ indicates that they are associated with driver's injuries, we include those
+ two features to our set of control variates.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement t
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+
+\size small
+\begin_inset Graphics
+	filename figs/importances.pdf
+	width 100line%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:variable_importance"
+
+\end_inset
+
+Variable importance using a Random Forest classifier (RF) and regularized
+ logistic regression (RLR).
+ For logistic regression, the variable importance is calculated as the dimension
+-normalized group norm of the estimates standardized to sum to 1.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Model Selection
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float table
+placement t
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+
+\size small
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+input{./tables/model_selection.tex}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "tab:model_selection"
+
+\end_inset
+
+Estimated contrasts between pairs of vehicule types.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Comparison of Injuries by Vehicle Types
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float table
+placement t
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+
+\size small
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+input{./tables/contrasts.tex}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "tab:contrasts"
+
+\end_inset
+
+Estimated contrasts between pairs of vehicule types.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Control Variates Analysis
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage clearpage
+\end_inset
+
+
+\begin_inset Newpage newpage
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Discussion
+\end_layout
+
+\begin_layout Subsection
+On the Analysis
+\end_layout
+
+\begin_layout Standard
+Correlation between features
+\end_layout
+
+\begin_layout Standard
+Bonferroni and multiple testing
+\end_layout
+
+\begin_layout Subsection
+On the Results
+\end_layout
+
+\begin_layout Subsection
+Further comments
+\end_layout
+
+\begin_layout Standard
+step-wise selection for logreg
+\end_layout
+
+\begin_layout Standard
+some possibly interesting features were omitted inadvertantly
+\end_layout
+
+\begin_layout Standard
+the variable description only include the selected ones, I should redo that
+\end_layout
+
+\begin_layout Standard
+var importance plot should have decode var names
+\end_layout
+
+\begin_layout Standard
+should not include ejection, should exclude month
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage clearpage
+\end_inset
+
+
+\begin_inset Newpage newpage
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset bibtex
+LatexCommand bibtex
+btprint "btPrintCited"
+bibfiles "references"
+options "bibtotoc,abbrvnat"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+\start_of_appendix
+Supplemental Tables
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float table
+placement t
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+
+\size footnotesize
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+input{./tables/var_description.tex}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "tab:var_description"
+
+\end_inset
+
+Estimated contrasts between pairs of vehicule types.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float table
+placement t
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+
+\size footnotesize
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+input{./tables/control_variates_crash.tex}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "tab:control_crash"
+
+\end_inset
+
+Estimated contrasts between pairs of vehicule types.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset Float table
+placement t
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+
+\size footnotesize
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+input{./tables/control_variates_vehicle.tex}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "tab:control_vehicle"
+
+\end_inset
+
+Estimated contrasts between pairs of vehicule types.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset Float table
+placement t
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+
+\size footnotesize
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+input{./tables/control_variates_driver.tex}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "tab:control_driver"
+
+\end_inset
+
+Estimated contrasts between pairs of vehicule types.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_body
+\end_document
