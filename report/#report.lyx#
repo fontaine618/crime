@@ -154,8 +154,17 @@ literal "false"
 
 \end_layout
 
-\begin_layout Abstract
+\begin_layout Standard
+\begin_inset Note Comment
+status open
+
+\begin_layout Plain Layout
 This is the abstract
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -756,7 +765,7 @@ Third, since the Random Forest model is intrinsically non-linear, we also
 Finally, we arbitrarily select potentially relevant features from these
  three subsets as our control variates.
  Note that, for the last two methods, we only consider information which
- can temporarily predict the injuries and exclude any information that can
+ can temporally predict the injuries and exclude any information that can
  be seen as resulting from a crash (e.g.
  vehicle damage).
 \end_layout
@@ -782,8 +791,10 @@ Day of week
 \emph on
 Hour
 \emph default
-), we consider two modeling variations: either we fit cubic splines with
- 5 degrees of freedom or we use the binned version of these variables.
+), we consider three modeling variations: either we fit cubic splines with
+ 5 degrees of freedom, either we use the binned version of these variables
+ or we use it as a categorical variable directly if the number of levels
+ is small.
  Note that the 
 \emph on
 Age
@@ -821,8 +832,12 @@ Results
 \end_layout
 
 \begin_layout Standard
-All code for data processing, analysis, producing tables and figures can
- be found at:
+All 
+\family typewriter
+Python
+\family default
+ code for data processing, analysis, producing tables and figures can be
+ found at:
 \end_layout
 
 \begin_layout Quotation
@@ -994,7 +1009,7 @@ Weather condition
 \end_layout
 
 \begin_layout Paragraph
-Final set of control variates.
+Comparison.
 \end_layout
 
 \begin_layout Standard
@@ -1015,7 +1030,7 @@ Day of week
 \emph on
 Hour
 \emph default
- were not selected.
+, which intuitively should not act linearly, were not selected.
  Therefore, since 
 \begin_inset CommandInset citation
 LatexCommand citep
@@ -1024,7 +1039,7 @@ literal "false"
 
 \end_inset
 
- and the non-linear model finds them relevant, we include these covariates
+ and the non-linear model finds them relevant, we include these covariates,
  but model them using non-linear terms (cubic spline and binning).
  All three agents find 
 \emph on
@@ -1065,7 +1080,50 @@ literal "false"
 
  indicates that they are associated with driver's injuries, we include those
  two features to our set of control variates.
- 
+ In total, we include ten control variates.
+ For crash-related information, we have 
+\emph on
+Month
+\emph default
+, 
+\emph on
+Day of week
+\emph default
+, 
+\emph on
+Hour
+\emph default
+ and 
+\emph on
+Primary cause
+\emph default
+.
+ For vehicle-related information, we have 
+\emph on
+Action
+\emph default
+ and 
+\emph on
+Maneuver
+\emph default
+.
+ For driver-related information, we have 
+\emph on
+Age
+\emph default
+, 
+\emph on
+Sex
+\emph default
+, 
+\emph on
+Blood alcohol content
+\emph default
+ and 
+\emph on
+Safety equipement
+\emph default
+.
 \end_layout
 
 \begin_layout Standard
@@ -1116,6 +1174,81 @@ Variable importance using a Random Forest classifier (RF) and regularized
 
 \begin_layout Subsection
 Model Selection
+\end_layout
+
+\begin_layout Standard
+Our three numerical control variates, 
+\emph on
+Month
+\emph default
+, 
+\emph on
+Day of week
+\emph default
+ and 
+\emph on
+Hour
+\emph default
+, require non-linear modeling.
+ The 
+\emph on
+Month
+\emph default
+ variable is modeled using either cubic splines (GAM) or binned into seasons;
+ the 
+\emph on
+Day of week
+\emph default
+ variable is modeled using all seven days as categories (
+\emph on
+All
+\emph default
+) or binned into 
+\emph on
+Weekday
+\emph default
+/
+\emph on
+Weekend
+\emph default
+; the 
+\emph on
+Hour
+\emph default
+ variable is modeled using either cubic splines (GAM) or binned into 
+\emph on
+Day
+\emph default
+/
+\emph on
+Night
+\emph default
+.
+ Table
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "tab:model_selection"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ shows modeling results for all such combinations and for both responses.
+ 
+\end_layout
+
+\begin_layout Standard
+In all cases, we do not observe a particularly large difference between
+ models which indicates that either these covariates have small association
+ with the responses or that these modeling schemes are relatively equivalent.
+ For both responses, binning these numerical variables results in the best
+ log-likelihood, AIC and BIC so we choose these models for the analysis.
+ 
 \end_layout
 
 \begin_layout Standard
@@ -1172,6 +1305,62 @@ Comparison of Injuries by Vehicle Types
 \end_layout
 
 \begin_layout Standard
+Using the logistic regression models selected in the previous section, we
+ compute contrasts between all combinations of pairs of vehicle type: results
+ are displayed in Table
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "tab:contrasts"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+We find that there is no significant difference in suffering any injury
+ no matter what are the two vehicles involved in the crash.
+ All estimated differences are small in size and do not show any association
+ between injuries and vehicle type.
+\end_layout
+
+\begin_layout Standard
+In the case of severe injuries, we find a significant decrease in log-odds
+ of suffering a sever injury when a driver facing a passenger car occupies
+ a light truck instead of a passenger car.
+ All other comparisons do not yield significant differences, but some estimated
+ differences are generally negative when compared to the two passenger cars
+ case:
+\end_layout
+
+\begin_layout Itemize
+When the driver occupies a passenger car, we observe an insignificant decrease
+ in log-odds of severe injury when the other vehicle changes from a passenger
+ car to a light truck.
+ 
+\end_layout
+
+\begin_layout Itemize
+When facing a passenger car, a driver's log-odds of severe injury decreases
+ insignificantly when conducting a light truck instead of a passenger car.
+ 
+\end_layout
+
+\begin_layout Itemize
+When the two vehicles are light trucks, we observe an insignificant decrease
+ in log-odds of sever injury for one of two the drivers when compared to
+ when both vehicules are passenger cars.
+\end_layout
+
+\begin_layout Standard
 \begin_inset Float table
 placement t
 wide false
@@ -1224,15 +1413,133 @@ Estimated contrasts between pairs of vehicule types.
 Control Variates Analysis
 \end_layout
 
+\begin_layout Paragraph
+Crash-related information.
+\end_layout
+
 \begin_layout Standard
-\begin_inset Newpage clearpage
+The estimated coefficient for both responses can be found in Table
+\begin_inset space ~
 \end_inset
 
 
-\begin_inset Newpage newpage
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "tab:control_crash"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+.
+ We find no variable significantly associated with increased or decreased
+ log-odds of injury or severe injury.
+\end_layout
+
+\begin_layout Paragraph
+Vehicle-related information.
+\end_layout
+
+\begin_layout Standard
+The estimated coefficient for both responses can be found in Table
+\begin_inset space ~
 \end_inset
 
 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "tab:control_vehicle"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+.
+ We find that the 
+\emph on
+Action
+\emph default
+ variable is associated with observing any injury.
+ In particular, all actions, except 
+\emph on
+Too fast for conditions
+\emph default
+, show increased log-odds of injury when compared to 
+\emph on
+Disregarded control device
+\emph default
+.
+ This imply that 
+\emph on
+Too fast for conditions
+\emph default
+ and 
+\emph on
+Disregarded control device
+\emph default
+, performed by any of the two drivers, leads to crashes with less frequent
+ injuries than all other actions.
+\end_layout
+
+\begin_layout Paragraph
+Crash-related information.
+\end_layout
+
+\begin_layout Standard
+The estimated coefficient for both responses can be found in Table
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "tab:control_driver"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+We find that the 
+\emph on
+Unknown/other
+\emph default
+ age group of the driver is associated with increased log-odds of any and
+ severe injury when compared to all three other age groups.
+ All age groups other than 20- for the other driver show increased log-odds
+ of any injury and only the 
+\emph on
+Unknown/other
+\emph default
+ age group show increased log-odds of sever injury.
+ 
+\end_layout
+
+\begin_layout Standard
+Interestingly, and reminiscent of the findings of 
+\begin_inset CommandInset citation
+LatexCommand citet
+key "white2004arms"
+literal "false"
+
+\end_inset
+
+, when any of the two drivers was offered a Blood alcohol content test (i.e.,
+ was suspected of driving under the influence), we find decreased log-odds
+ of any and sever injury.
+\end_layout
+
+\begin_layout Standard
+We find that female drivers are associated with decreased log-odds of any
+ injure when compared to male and unknown/other drivers; we find similar
+ observations for the other driver as well.
 \end_layout
 
 \begin_layout Section
@@ -1244,19 +1551,138 @@ On the Analysis
 \end_layout
 
 \begin_layout Standard
-Correlation between features
+Among the set of control variates, we find that 
+\emph on
+Primary cause
+\emph default
+, 
+\emph on
+Action
+\emph default
+ and 
+\emph on
+Maneuver
+\emph default
+ are highly correlated both statistically and intuitively.
+ Including all three variables in our main analysis potentially decreases
+ the power of the logistic regression model.
+ Indeed, we find that only 
+\emph on
+Action
+\emph default
+ had a significant association with injuries and excluding the other two
+ could decrease the uncertainty around all estimates.
+ 
 \end_layout
 
 \begin_layout Standard
-Bonferroni and multiple testing
+When computing confidence intervals for contrasts and for all control variates,
+ we use unadjusted 95% multipliers.
+ This obviously leads to multiple testing issues as the family-wise Type
+ I error is no longer of level 95%.
+ Applying a Bonferroni correction to the three estimated contrasts would
+ lower a 5% significance level to 1.33% which is still above the observed
+ 
+\begin_inset Formula $p$
+\end_inset
+
+-value for the only contrast identified as significant.
 \end_layout
 
 \begin_layout Subsection
 On the Results
 \end_layout
 
+\begin_layout Standard
+In the Chicago urban setting, we find evidence showing light trucks (SUVs
+ and pickup trucks) drivers have lower odds of suffering severe injuries
+ when compared to passenger car drivers when involved in a crash a passenger
+ car.
+ This result seem to agree with studies 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "buffalo2013passenger"
+literal "false"
+
+\end_inset
+
+ and intuition that light truck are safer than passenger cars.
+ 
+\end_layout
+
+\begin_layout Standard
+We have also found some weaker evidence that drivers involved in two-light-truck
+s crashes are less likely to suffer severe injuries than drivers involved
+ in two-passenger-cars crashes.
+ In particular, it does not seem likely that the opposite is true, at least
+ under the situations covered by this analysis.
+ On the surface, this result seem to disagree with those found in 
+\begin_inset CommandInset citation
+LatexCommand citet
+key "ross2002analysis"
+literal "false"
+
+\end_inset
+
+ and 
+\begin_inset CommandInset citation
+LatexCommand citet
+key "white2004arms"
+literal "false"
+
+\end_inset
+
+.
+ However, it is important to reiterate that we only consider urban crashes
+ where the conditions are typically different than rural crashes (e.g.
+ different speeds, traffic way types, etc.).
+ Indeed, 
+\begin_inset CommandInset citation
+LatexCommand citet
+key "white2004arms"
+literal "false"
+
+\end_inset
+
+ find a significant difference in severe injuries between rural crashes
+ and large city crashes.
+\end_layout
+
+\begin_layout Standard
+As for the association between injuries and the control variates we included
+ in the models, we obtain results mostly agreeing with those in 
+\begin_inset CommandInset citation
+LatexCommand citet
+key "white2004arms"
+literal "false"
+
+\end_inset
+
+.
+ We find that age acts in a similar fashion as younger drivers are associated
+ with fewer injuries.
+ We find the same unintuitive result that drivers suspected of being under
+ the influence of alcohol tend to suffer fewer injuries.
+ We find that male drivers are associated with increased of injury while
+ 
+\begin_inset CommandInset citation
+LatexCommand citet
+key "white2004arms"
+literal "false"
+
+\end_inset
+
+ find that to be true only for the other driver.
+ We do not find associations between time (month, day of week, hour) and
+ injuries
+\end_layout
+
 \begin_layout Subsection
 Further comments
+\end_layout
+
+\begin_layout Standard
+This would not be in the report, but here are some things I would change:
 \end_layout
 
 \begin_layout Standard
@@ -1280,14 +1706,7 @@ should not include ejection, should exclude month
 \end_layout
 
 \begin_layout Standard
-\begin_inset Newpage clearpage
-\end_inset
-
-
-\begin_inset Newpage newpage
-\end_inset
-
-
+maybe bin more
 \end_layout
 
 \begin_layout Standard
